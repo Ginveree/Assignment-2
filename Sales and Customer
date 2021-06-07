@@ -1,0 +1,120 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+public class SalesNCus extends VisitorAttraction {//2.1 Inheritance
+	//1.2 Pre-define class
+	Scanner sc = new Scanner(System.in);
+	String types[] = {"PETRONAS TWIN TOWERS", "STADTHUYS", "KINABATANGAN RIVER"};
+	protected String name, memID;
+	protected int choice, quantity, contactNum;
+	protected char membership;
+	protected int bookingID;
+	protected double price, totalPrice;
+	
+	SalesNCus(int bID) {
+		this.bookingID = bID;
+		
+		printRegistration();
+		printNormalPrice();
+		printNormalReceipt();
+	}	
+
+	SalesNCus(int bID, String ID) {
+		this.bookingID = bID;
+		this.memID = ID;
+		
+		printRegistration();
+		printMemID();
+		printMemReceipt();
+	}	
+
+	void printRegistration() {
+		System.out.println("\nRegistration Center");
+		System.out.println("===================");
+		for (int i = 0; i < types.length; i++) {
+			System.out.println((i+1) + ". " + types[i]);
+		}
+		System.out.print("Please select(1/2/3)\t: ");
+		this.choice = sc.nextInt();
+		System.out.print("Quantity\t\t: ");
+		this.quantity = sc.nextInt();
+		System.out.print("Name\t\t\t: ");
+		this.name = sc.next() + sc.nextLine();
+		System.out.print("Contact Number\t\t: ");
+		this.contactNum = sc.nextInt();	
+	}
+	
+	void printNormalPrice() {
+		if (this.choice == 1) {
+			setPrice(219.99);
+			this.totalPrice = getPrice();
+		}
+		else if (this.choice == 2) {
+			setPrice(109.99);
+			this.totalPrice = getPrice();
+		}
+		else if (this.choice == 3) {
+			setPrice(79.99);
+			this.totalPrice = getPrice();
+		}
+	}
+	
+	void printMemID() {
+		if (this.choice == 1) {
+			setPrice(219.99);
+			Member pBM = new MemberPriceRate();
+			double m = pBM.pBMemPrice();
+			this.totalPrice = getPrice() * (1 - m);
+		}	
+		else if (this.choice == 2) {
+			setPrice(109.99);
+			Member hBM = new MemberPriceRate();
+			double m = hBM.hMemPrice();
+			this.totalPrice = getPrice() * (1 - m);
+		}	
+		else if (this.choice == 3) {
+			setPrice(79.99);
+			Member nBM = new MemberPriceRate();
+			double m = nBM.nMemPrice();
+			this.totalPrice = getPrice() * (1 - m);
+		}		
+	}
+	
+	
+	public void setPrice(double p) {//2.3 Encapsulation
+		this.price = p;
+	}
+	
+	public double getPrice() {//2.3 Encapsulation
+		return this.price * this.quantity;
+	}
+	
+	void printMemReceipt() {
+		
+		System.out.printf("%s%s%s%s%s%s%d%s%s%s%d%s%d%s%s%s%.2f%s\n","\n==========================================",
+																	 "\n\t\t Receipt\n=====================",
+																	 "=====================\n  + Member\n",
+																	 "  ",types[this.choice - 1],
+																	 "\n  Booking ID\t : ",this.bookingID,
+																	 "\n  Name\t\t : ",this.name,
+																	 "\n  Quantity\t : ",this.quantity,
+																	 "\n  Contact Number : +60 ",this.contactNum,
+																	 "\n  Membership ID  : ",this.memID,
+																	 "\n  Total Price \t : RM ",this.totalPrice,
+																	 "\n==========================================");
+	}
+	
+	void printNormalReceipt() {
+		System.out.printf("%s%s%s%s%s%s%d%s%s%s%d%s%d%s%.2f%s\n","\n==========================================",
+																	 "\n\t\t Receipt\n=====================",
+																	 "=====================\n  + Normal\n",
+																	 "  ",types[this.choice - 1],
+																	 "\n  Booking ID\t : ",this.bookingID,
+																	 "\n  Name\t\t : ",this.name,
+																	 "\n  Quantity\t : ",this.quantity,
+																	 "\n  Contact Number : +60 ",this.contactNum,
+																	 "\n  Total Price \t : RM ",this.totalPrice,
+																	 "\n==========================================");
+	}
+}
