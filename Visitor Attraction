@@ -1,0 +1,26 @@
+package Assignment2;
+
+public abstract class VisitorAttraction {//2.4 Abstraction
+	String cName, cDeveloper;
+	
+	VisitorAttraction() {
+		setcName("GK SDN BHD");
+		setcDev("Ginveree");	
+	}
+	
+	public void setcName(String cN) {//2.3 Encapsulation
+		this.cName = cN;	
+	}
+	
+	public void setcDev(String cD) {//2.3 Encapsulation
+		this.cDeveloper = cD;	
+	}
+	
+	public String getcName() {//2.3 Encapsulation
+		return this.cName;	
+	}
+	
+	public String getcDev() {//2.3 Encapsulation
+		return this.cDeveloper;	
+	}
+}
