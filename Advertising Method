@@ -1,0 +1,51 @@
+package Assignment2;
+
+public class AdvertisingMethod extends VisitorAttraction implements Payment {//2.1 Inheritance & 2.5 Interface
+	protected String onlineT1;
+	protected double cost, totalAdCost;
+	
+	AdvertisingMethod() {
+		System.out.println("");
+ 	}
+	
+	AdvertisingMethod(double c) {	
+		this.cost = c;
+		System.out.print("Advertise through ");
+		printOfflineAdInfo();		
+	}
+	
+	AdvertisingMethod(String oAd1, double c) {
+		this.cost = c;
+		this.onlineT1 = oAd1;
+		getPayment(c);//2.5 Interface
+		
+		System.out.print("Advertise through ");
+		printOnlineAdInfo(this.onlineT1);
+	}
+	
+	public double getPayment(double payment) {//2.5 Interface
+		return payment;
+	}
+	
+	void printOnlineAdInfo(String a1) {//2.2 Polymorphism
+		System.out.println(a1);
+		System.out.println("|*******************************************************************|");
+		System.out.println("|                        BIRTHDAY SPECIAL                           |");
+		System.out.println("|*******************************************************************|");
+		System.out.println("| Celebrate your birthday with us and bring FIVE people to share in |");
+		System.out.println("| the joy with our ONLINE Birthday Special ‘Buy 5 FREE 1'!!         |");
+		System.out.println("|*******************************************************************|");
+		System.out.println("| Ticket(s) Validity: Valid during birthday month.                  |");
+		System.out.println("|*******************************************************************|");
+	}
+	
+	void printOfflineAdInfo() {//2.2 Polymorphism
+		System.out.println("Newspaper and Flyers");
+		System.out.println("|*******************************************************************|");
+		System.out.println("|                           SENIORS PLAY                            |");
+		System.out.println("|*******************************************************************|");
+		System.out.println("| Just Because we are getting older, it doesn’t mean we stop having |");
+		System.out.println("| fun! Seniors which are 65 years old above get to play for FREE!!  |");
+		System.out.println("|*******************************************************************|");
+	}
+}
