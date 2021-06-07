@@ -1,0 +1,83 @@
+package Assignment2;
+
+public class Finance extends AdvertisingMethod implements Payment {//2.1 Inheritance & 2.5 Interface
+	private double tax, incomePB, incomeH, incomeN, employeeCost, adCost;
+	
+	Finance(double iPB, double iH, double iN, double eC, double aC, double t) {
+		setIncomePB(iPB);
+		setIncomeH(iH);
+		setIncomeN(iN);
+		setEmpCost(eC);
+		setAdCost(aC);
+		this.tax = t;
+		
+		System.out.println(toString());
+	}
+	
+	public double getPayment(double payment) {//2.5 Interface
+		return payment * 0.85;
+	}
+
+	public double totalCost() {//count total cost
+		return (getEmpCost() + getAdCost() + getPayment(this.tax));
+	}
+
+	public double totalRevenue() {//count total revenue
+		return (getIncomePB() + getIncomeH() + getIncomeN());
+	}
+
+	public double totalProfit() {//count total profit
+		return (totalRevenue() - totalCost());
+	}	
+	
+	
+	public void setIncomePB(double pB) {//2.3 Encapsulation
+		this.incomePB = pB;
+	}
+	
+	public void setIncomeH(double h) {//2.3 Encapsulation
+		this.incomeH = h;
+	}
+	
+	public void setIncomeN(double n) {//2.3 Encapsulation
+		this.incomeN = n;
+	}
+	
+	public void setEmpCost(double e) {//2.3 Encapsulation
+		this.employeeCost = e;
+	}
+	
+	public void setAdCost(double a) {//2.3 Encapsulation
+		this.adCost = a;
+	}
+	
+	public double getEmpCost() {//2.3 Encapsulation
+		return this.employeeCost;
+	}
+	
+	public double getAdCost() {//2.3 Encapsulation
+		return this.adCost;
+	}
+	
+	public double getIncomePB() {//2.3 Encapsulation
+		return this.incomePB;
+	}
+	
+	public double getIncomeH() {//2.3 Encapsulation
+		return this.incomeH;
+	}
+	
+	public double getIncomeN() {//2.3 Encapsulation
+		return this.incomeN;
+	}
+	
+	public String toString() {
+		return "++++++++++++++++++++++++++++++++++++++" + 
+				"\n           Financial Report           " + 
+				"\n++++++++++++++++++++++++++++++++++++++" + 
+				"\n  Total revenue : RM " + totalRevenue() + 
+				"\n  Total cost\t: RM " + totalCost() + 
+				"\n  Total profit\t: RM " + totalProfit() + 
+				"\n++++++++++++++++++++++++++++++++++++++";
+	}
+}
