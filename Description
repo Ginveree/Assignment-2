@@ -1,0 +1,105 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+public class Description extends VisitorAttraction {//2.1 Inheritance
+	//1.2 Pre-define class
+	Scanner sc = new Scanner(System.in);
+	protected int option;
+	protected double price, pB, h, n;
+	
+	
+	//1.4 Constructor with 1 argument
+	Description() {
+		setpBPrice(pB);
+		setHPrice(h);	
+		setNPrice(n);
+		
+		System.out.println(getcName());
+		System.out.println(getcDev());
+		System.out.println("********* Travel agency in Malaysia *********");
+		System.out.println("ADDRESS\t: 25, Jalan SS14/5, UEP Subang Jaya, "
+		             		+ "\n\t  47630 Subang Jaya, Selangor");
+		System.out.println("PHONE\t: 03-1234 5678");
+		System.out.println("********************HOURS********************");
+		System.out.println("\tSunday    \t   Closed");
+		System.out.println("\tMonday    \t  9am - 6pm");
+		System.out.println("\tTuesday   \t  9am - 6pm");
+		System.out.println("\tWednesday \t  9am - 6pm");
+		System.out.println("\tThursday  \t  9am - 6pm");
+		System.out.println("\tFriday    \t  9am - 6pm");
+		System.out.println("\tSaturday   \t   Closed");	
+		System.out.println("*********************************************\n");
+	}
+	
+	Description(int a, String b) {
+		setpBPrice(pB);
+		setHPrice(h);	
+		setNPrice(n);
+	}
+	
+	Description(double pB, double h, double n) {
+		
+		setpBPrice(pB);
+		setHPrice(h);	
+		setNPrice(n);
+			
+		printPurposeBuiltInfo();
+		printHeritageInfo();
+		printNatureInfo();	
+	}
+		
+	void printPurposeBuiltInfo() {//2.2 Polymorphism
+		System.out.println("|========================================================|");
+		System.out.println("|                PETRONAS TWIN TOWERS                    |");
+		System.out.println("|========================================================|");
+		System.out.println("| Type\t\t: Purpose Built Attraction               |");
+		System.out.println("| Location\t: Kuala Lumpur City Centre, Kuala Lumpur |");
+		System.out.println("| Price\t\t: RM " + getpBPrice() + "                              |");
+		System.out.println("|========================================================|\n");
+	}
+	
+	void printHeritageInfo() {//2.2 Polymorphism
+		System.out.println("|========================================================|");
+		System.out.println("|                        STADTHUYS                       |");
+		System.out.println("|========================================================|");
+		System.out.println("| Type\t\t: Heritage Attraction                    |");
+		System.out.println("| Location\t: Melacca City, Melacca                  |");
+		System.out.println("| Price\t\t: RM " + getHPrice() + "                              |");
+		System.out.println("|========================================================|\n");
+	}
+	
+	void printNatureInfo() {//2.2 Polymorphism
+		System.out.println("|========================================================|");
+		System.out.println("|                   KINABATANGAN RIVER                   |");
+		System.out.println("|========================================================|");
+		System.out.println("| Type\t\t: Nature Attraction                      |");
+		System.out.println("| Location\t: Sandakan Division, Sabah               |");
+		System.out.println("| Price\t\t: RM " + getNPrice() +"                               |");
+		System.out.println("|========================================================|\n");;
+	}
+	
+	public void setpBPrice(double pBP) {//2.3 Encapsulation
+		this.price = pBP;
+	}
+	
+	public void setHPrice(double hP) {//2.3 Encapsulation
+		this.price = hP;
+	}
+	
+	public void setNPrice(double nP) {//2.3 Encapsulation
+		this.price = nP;
+	}
+	
+	public double getpBPrice() {//2.3 Encapsulation
+		return this.price;
+	}
+	
+	public double getHPrice() {//2.3 Encapsulation
+		return this.price;
+	}
+	
+	public double getNPrice() {//2.3 Encapsulation
+		return this.price;
+	}
+}
