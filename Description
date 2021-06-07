@@ -6,15 +6,11 @@ public class Description extends VisitorAttraction {//2.1 Inheritance
 	//1.2 Pre-define class
 	Scanner sc = new Scanner(System.in);
 	protected int option;
-	protected double price, pB, h, n;
+	protected double price;
 	
 	
 	//1.4 Constructor with 1 argument
 	Description() {
-		setpBPrice(pB);
-		setHPrice(h);	
-		setNPrice(n);
-		
 		System.out.println(getcName());
 		System.out.println(getcDev());
 		System.out.println("********* Travel agency in Malaysia *********");
@@ -32,21 +28,13 @@ public class Description extends VisitorAttraction {//2.1 Inheritance
 		System.out.println("*********************************************\n");
 	}
 	
-	Description(int a, String b) {
-		setpBPrice(pB);
-		setHPrice(h);	
-		setNPrice(n);
-	}
-	
 	Description(double pB, double h, double n) {
-		
 		setpBPrice(pB);
-		setHPrice(h);	
-		setNPrice(n);
-			
 		printPurposeBuiltInfo();
+		setHPrice(h);
 		printHeritageInfo();
-		printNatureInfo();	
+		setNPrice(n);
+		printNatureInfo();			
 	}
 		
 	void printPurposeBuiltInfo() {//2.2 Polymorphism
